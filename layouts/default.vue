@@ -4,8 +4,11 @@
   </div>
 </template>
 
-<style>
-html {
+<style lang="scss">
+@import '../assets/css/base.scss';
+/* @import '../assets/css/util.scss'; */
+
+/* html {
   font-family:
     'Source Sans Pro',
     -apple-system,
@@ -58,5 +61,5 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
-}
+} */
 </style>

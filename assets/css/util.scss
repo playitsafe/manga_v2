@@ -1,0 +1,66 @@
+@mixin clearfix {
+  &::after {
+      content: "";
+      display: table;
+      clear: both;//left n right
+  }
+}
+
+@mixin flex-v-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-h-center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flex-v-h-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin inline-flex-center {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin hover-pointer {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@mixin img-bg($url, $size, $position) {
+  background-image: url($url);
+  background-size: $size;
+  background-position: $position;
+}
+
+@mixin visibility-none {
+  visibility: hidden;
+  opacity: 0;
+}
+
+@mixin visibility-show {
+  visibility: visible;
+  opacity: 1;
+}
+
+@mixin remove-input-style {
+  border:none;
+  border-width:0px;
+  &:focus {
+    border:none;
+    border-width:0px;
+    outline: none;
+  }
+}
