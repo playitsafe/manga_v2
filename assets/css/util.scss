@@ -8,16 +8,19 @@
 
 @mixin flex-v-center {
   display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
 @mixin flex-h-center {
   display: flex;
+  flex-direction: row;
   justify-content: center;
 }
 
 @mixin flex-v-h-center {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -64,3 +67,17 @@
     outline: none;
   }
 }
+
+// Media query
+@mixin atMedium {
+  @media (min-width: 530px) {
+    @content;
+  }
+}
+
+@mixin atLarge {
+  @media (min-width: 990px) {
+    @content;
+  }
+}
+
