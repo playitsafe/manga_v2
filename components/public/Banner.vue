@@ -8,16 +8,6 @@
               <img :src="banner.image_url" :alt="banner.title">
             </nuxt-link>
           </div>
-          <div class="banner-wrapper-inner-swiper-slide swiper-slide">
-            <nuxt-link to="/">
-              <img src="/imgs/b1.jpg" alt="ww">
-            </nuxt-link>
-          </div>
-          <div class="banner-wrapper-inner-swiper-slide swiper-slide">
-            <nuxt-link to="/">
-              <img src="/imgs/b2.jpg" alt="ww">
-            </nuxt-link>
-          </div>
         </div>
         <div class="swiper-pagination"></div>
       </div>
@@ -84,8 +74,8 @@ export default {
 
 .banner {
   margin-top: .9rem;
-  width: 100%;
-  height: 3rem;
+  /* width: 100%; */
+  height: 2rem;
 
   &-wrapper {
     position: relative;
@@ -121,6 +111,7 @@ export default {
 
 @include atSmall {
   .banner {
+    /* height: 3rem; */
     &-wrapper {
       &-inner {
         &-swiper {
@@ -140,6 +131,7 @@ export default {
 
 @include atMedium {
   .banner {
+    height: 3rem;
     &-wrapper {
       &-inner {
         &-swiper {
@@ -200,6 +192,7 @@ export default {
 
     }
     .swiper-button-prev, .swiper-button-next {
+      display: block;
       transform: translateY(-40px);
       color: $light-green;
     }
