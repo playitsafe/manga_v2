@@ -4,9 +4,9 @@
       <div class="banner-wrapper-inner" v-swiper:mySwiper="swiperOption">
         <div class="banner-wrapper-inner-swiper swiper-wrapper">
           <div class="banner-wrapper-inner-swiper-slide swiper-slide" v-for="banner in banners" :key="banner.id">
-            <nuxt-link to="/">
+            <a :href="`/item/${banner.id}`" target="_blank">
               <img :src="banner.image_url" :alt="banner.title">
-            </nuxt-link>
+            </a>
           </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -48,8 +48,8 @@ export default {
           clickable :true
         },
         navigation: {
-          nextEl: '.swiper-button-prev',
-          prevEl: '.swiper-button-next'
+          prevEl: '.swiper-button-prev',
+          nextEl: '.swiper-button-next'
         }
       }
     }

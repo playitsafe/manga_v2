@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
     "core-js": "^3.8.2",
+    "js-md5": "^0.7.3",
     "nuxt": "^2.14.12",
     "swiper": "^5.4.0",
     "vue-awesome-swiper": "^4.1.1"

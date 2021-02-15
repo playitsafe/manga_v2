@@ -6,7 +6,7 @@
           <div class="header-inner-left-logo">
             <nuxt-link to="/">
               <li>
-                <img src="imgs/manga_logo.png" alt="manga_logo">
+                <img src="/imgs/manga_logo.png" alt="manga_logo">
               </li>
               <!-- <div class="header-inner-left-burger"><i class="fas fa-bars"></i></div> -->
             </nuxt-link>
@@ -16,7 +16,7 @@
           <div class="header-inner-left-menu">
             <nuxt-link to="/"><li>首页</li></nuxt-link>
             <nuxt-link to="/"><li>频道</li></nuxt-link>
-            <nuxt-link to="/"><li>姘姘推荐</li></nuxt-link>
+            <nuxt-link to="/item/4"><li>姘姘推荐</li></nuxt-link>
 
           </div>
         </ul>

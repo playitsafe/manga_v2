@@ -1,9 +1,7 @@
 <template>
   <div class="container">
-    <Header />
     <Banner />
     <Section v-for="section in sections" :key="section.id" :content="section" />
-    <Footer />
   </div>
 </template>
 
