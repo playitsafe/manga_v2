@@ -18,7 +18,7 @@ export default {
     })
   },
   async fetch({ store, app }) {
-    let [ banners, sections ] = await Promise.all([
+    const [ banners, sections ] = await Promise.all([
       app.$axios.get('/homepage/promotions').then( res => res.status === 200 && res.data.status === 'success' ? res.data.data.banners : [] ),
       app.$axios.get('/homepage/recommendations').then( res => res.status === 200 && res.data.status === 'success' ? res.data.data : [] ),
     ]);

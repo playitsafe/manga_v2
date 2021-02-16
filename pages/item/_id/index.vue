@@ -33,6 +33,22 @@
         </div>
       </div>
     </div>
+    <div class="item-main">
+      <div class="item-main-inner">
+        <div class="item-main-inner-intro">
+          <h3>作品简介</h3>
+          <p>{{ item.description }}</p>
+        </div>
+        <div class="item-main-inner-content">
+          <h3>目录 {{ item.open_episodes_count }}章</h3>
+          <div class="item-main-inner-content-eps">
+            <div class="item-main-inner-content-eps-ep" v-for="ep in episodes" :key="ep.id">
+              {{ ep.title }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -44,9 +60,14 @@ export default {
     }
   },
   async asyncData({ $axios, params }) {
-    const { status, data } = await $axios.$get('/content/detail?id=' + params.id);
-    const item = status === 'success' ? data : {}
-    return { item }
+    // const { status, data } = await $axios.$get('/content/detail?id=' + params.id);
+    // const item = status === 'success' ? data : {}
+    // return { item }
+    const [item, episodes] = await Promise.all([
+      $axios.get('/content/detail?id=' + params.id).then(res => res.status === 200 && res.data.status === 'success' ? res.data.data : {}),
+      $axios.get('/content/episodes?id=' + params.id).then(res => res.status === 200 && res.data.status === 'success' ? res.data.data : []),
+    ]);
+    return { item, episodes }
   }
   // mounted() {
   //   console.log(this.$route.params.id)
@@ -62,8 +83,8 @@ export default {
   margin-top: .85rem;
   /* height: 3rem; */
   /* background: pink; */
+  background: #fff;
   &-info {
-
     &-pwd {
       margin: 0 0 .1rem 0;
       color: #999999;
@@ -166,8 +187,52 @@ export default {
     }
   }
 
+  &-main {
+    background: #fafafa;
+    padding: .4rem 0 1rem 0;
+
+    &-inner {
+      max-width: 10rem;
+      background: #fff;
+      margin: 0 auto;
+      padding: .2rem;
+
+      &-intro {
+        h3 {
+          font-size: .2rem;
+          margin-bottom: .2rem;
+        }
+
+        p {
+          color: #666666;
+          line-height: .24rem;
+        }
+      }
+
+      &-content {
+        margin-top: .3rem;
+        h3 {
+          font-size: .2rem;
+
+        }
+        &-eps {
+          margin-top: .3rem;
+          &-ep {
+            color: #666666;
+            line-height: .4rem;
+            border-bottom: 1px solid #eeeeee;
+          }
+        }
+      }
+    }
+  }
+
   @include atMedium {
     &-info {
+      &-pwd {
+        /* margin: .9rem 0 .3rem 0; */
+        padding-top: .3rem;
+      }
       &-main {
         &-left {
           &-detail {
@@ -231,6 +296,28 @@ export default {
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
+        }
+      }
+    }
+
+    &-main {
+      &-inner {
+        padding: .6rem;
+        &-intro {
+          margin-bottom: .6rem;
+        }
+        &-content {
+          margin-top: .6rem;
+          &-eps {
+            margin-top: .5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            &-ep {
+              line-height: .6rem;
+              width: 4.2rem;
+            }
+          }
         }
       }
     }
