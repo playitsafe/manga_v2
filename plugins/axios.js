@@ -24,12 +24,16 @@ export default function ({ $axios, params, redirect }) {
   };
 
   $axios.onRequest(config => {
-    const concat = config.url.indexOf("?") !== -1 ? "&" : "?";
+    if(config.params === undefined) {
+      config.params = {}
+    }
+    config.params.sign = sign(config.url, config.params, '66c10a61bd916c23f3b33810d3785d17');
+    // const concat = config.url.indexOf("?") !== -1 ? "&" : "?";
     //config.url = '/content/detail?id=3' or '/homepage/promotions'
     //当请求api含参时,截取参数前的url'/content/detail'
-    const url = config.url.split('?')[0];
-    config.url = config.url + concat + 'sign=' + sign(url, params, '66c10a61bd916c23f3b33810d3785d17');
-    console.log('Making request to ' + config.url)
+    // const url = config.url.split('?')[0];
+    // config.url = config.url + concat + 'sign=' + sign(url, currentRequestParams, '66c10a61bd916c23f3b33810d3785d17');
+    // console.log('Making request to ' + config.url)
   })
 
 
