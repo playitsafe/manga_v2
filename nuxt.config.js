@@ -48,7 +48,7 @@ export default {
     baseURL: 'http://api.mangabook.me/api',
     headers: {
       common: {
-        'no-sign-check': 'TRUE'
+        // 'no-sign-check': 'TRUE'
       }
     }
   },

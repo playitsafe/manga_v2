@@ -19,7 +19,7 @@ export default function ({ $axios, params, redirect }) {
       paramItemsForSign.push(k + '=' + v)
     }
     let strForSign = '/api' + path + paramItemsForSign.join('&') + secretKey
-    // console.log('strForSign', strForSign)
+    console.log('strForSign', strForSign)
     return md5(strForSign)
   };
 
