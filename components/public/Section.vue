@@ -7,7 +7,7 @@
       <div class="section-inner-items">
         <div class="section-inner-items-item" v-for="item in content.items" :key="item.id">
           <div class="section-inner-items-item-cover">
-            <a :href="item.click_url"><img :src="item.image_url" :alt="item.title"></a>
+            <a :href="getClickUrl(item.click_url)"><img :src="item.image_url" :alt="item.title"></a>
           </div>
           <a :href="item.click_url">
             <abbr :title="item.title">
@@ -26,6 +26,12 @@
 export default {
   props: {
     content: Object
+  },
+  methods: {
+    getClickUrl(clickUrl) {
+      const id = clickUrl.replace(/[^0-9]/ig,"")
+      return '/item/' + id
+    }
   }
 }
 </script>

@@ -64,8 +64,10 @@ export default {
     // const item = status === 'success' ? data : {}
     // return { item }
     const [item, episodes] = await Promise.all([
-      $axios.get('/content/detail?id=' + params.id).then(res => res.status === 200 && res.data.status === 'success' ? res.data.data : {}),
-      $axios.get('/content/episodes?id=' + params.id).then(res => res.status === 200 && res.data.status === 'success' ? res.data.data : []),
+      $axios.get('/content/detail', {params: {id: params.id}})
+        .then(res => res.status === 200 && res.data.status === 'success' ? res.data.data : {}),
+      $axios.get('/content/episodes', {params: {id: params.id}})
+        .then(res => res.status === 200 && res.data.status === 'success' ? res.data.data : []),
     ]);
     return { item, episodes }
   }
