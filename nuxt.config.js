@@ -46,11 +46,11 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: 'http://api.mangabook.me/api',
-    headers: {
-      common: {
-        'no-sign-check': 'TRUE'
-      }
-    }
+    // headers: {
+    //   common: {
+    //     'no-sign-check': 'TRUE'
+    //   }
+    // }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
